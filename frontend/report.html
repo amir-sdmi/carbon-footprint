@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Carbon Footprint Report</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <h2>📄 Your Carbon Footprint Report</h2>
+
+    <div class="buttons">
+      <a id="downloadLink" class="btn-download" download
+        >⬇️ Download PDF Report</a
+      >
+      <button onclick="resetAll()" class="btn-reset">♻️ Reset All Data</button>
+      <button onclick="startNew()" class="btn-new">🆕 New Calculation</button>
+    </div>
+
+    <div class="report-container">
+      <!-- User Report Table -->
+      <div class="report-section">
+        <h4>👤 Your Monthly Footprint</h4>
+        <table id="resultTable" class="report-table"></table>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+      <!-- Summary Table -->
+      <div class="summary-section">
+        <h4>📈 Summary Trends</h4>
+        <table id="summaryTable" class="report-table"></table>
+        <canvas id="trendChart"></canvas>
+      </div>
+    </div>
+
+    <script src="report.js"></script>
+  </body>
+</html>

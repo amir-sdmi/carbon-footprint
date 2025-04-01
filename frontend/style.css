@@ -1,32 +1,172 @@
+/* === Shared Styles for Calculator (index.html) & Report (report.html) === */
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f8f9fa;
-  padding: 30px;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background-color: #f9fafa;
+  color: #2c3e50;
+  margin: 0;
+  padding: 40px 20px;
 }
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2d3436;
+}
+
+/* === Form (index.html) === */
 form {
-  background: white;
+  max-width: 960px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.form-section {
+  background: #f5f7f9;
+  padding: 20px;
+  border-left: 4px solid #2980b9;
+  border-radius: 6px;
+  text-align: left;
+}
+
+label {
+  font-weight: 500;
+  margin-top: 10px;
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+/* === Report Grid Layout (report.html) === */
+.report-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.report-section,
+.summary-section {
+  background: #ffffff;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
-  margin: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
-input,
-button {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-}
-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
+
 .result {
-  margin: 20px auto;
-  width: 300px;
-  background: #d4edda;
-  padding: 15px;
-  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.result ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result ul li {
+  font-size: 14px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.buttons {
   text-align: center;
+  margin: 20px 0;
+}
+
+button,
+.btn-download,
+.btn-reset,
+.btn-new {
+  display: inline-block;
+  margin: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  background: #3498db;
+}
+button:hover {
+  background: #2980b9;
+}
+
+.btn-download {
+  background: #2ecc71;
+}
+.btn-download:hover {
+  background: #27ae60;
+}
+
+.btn-reset {
+  background: #e74c3c;
+}
+.btn-reset:hover {
+  background: #c0392b;
+}
+
+.btn-new {
+  background: #8e44ad;
+}
+.btn-new:hover {
+  background: #732d91;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.report-table th,
+.report-table td {
+  border-bottom: 1px solid #e1e1e1;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.report-table th {
+  background-color: #ecf0f1;
+  color: #2c3e50;
 }

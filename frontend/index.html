@@ -1,22 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carbon Footprint Calculator</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>Carbon Footprint Calculator</h2>
+    <h2>🌱 Carbon Footprint Calculator</h2>
+
     <form id="carbonForm">
-      <label>Electricity (kWh/month):</label>
-      <input type="number" id="electricity" step="0.01" required />
+      <div class="form-grid">
+        <!-- Energy Section -->
+        <div class="form-section">
+          <h3>🔌 Energy Usage</h3>
+          <label>Electricity (kWh/month):</label>
+          <input type="number" id="electricity" step="0.01" />
 
-      <label>Car Travel (km/month):</label>
-      <input type="number" id="car_km" step="0.01" required />
+          <label>Natural Gas (cubic feet/month):</label>
+          <input type="number" id="natural_gas" step="0.01" />
 
-      <button type="submit">Calculate</button>
+          <label>Heating Oil (gallons/month):</label>
+          <input type="number" id="heating_oil" step="0.01" />
+        </div>
+
+        <!-- Transportation Section -->
+        <div class="form-section">
+          <h3>🚗 Transportation</h3>
+          <label>Car Distance Driven (km/month):</label>
+          <input type="number" id="car_km" step="0.01" />
+
+          <label>Fuel Type:</label>
+          <select id="car_fuel_type">
+            <option value="gasoline">Gasoline</option>
+            <option value="diesel">Diesel</option>
+            <option value="electric">Electric</option>
+          </select>
+
+          <label>Flights Per Year:</label>
+          <input
+            type="number"
+            id="short_flights"
+            placeholder="Short (<300 mi)"
+          />
+          <input
+            type="number"
+            id="medium_flights"
+            placeholder="Medium (300–2300 mi)"
+          />
+          <input
+            type="number"
+            id="long_flights"
+            placeholder="Long (>2300 mi)"
+          />
+        </div>
+
+        <!-- Waste Section -->
+        <div class="form-section">
+          <h3>🗑️ Waste</h3>
+          <label>General Waste (kg/month):</label>
+          <input type="number" id="waste_kg" step="0.01" />
+
+          <label>Recycling:</label>
+          <div class="checkbox-group">
+            <label
+              ><input type="checkbox" id="recycle_plastic" /> Plastic</label
+            >
+            <label><input type="checkbox" id="recycle_paper" /> Paper</label>
+            <label><input type="checkbox" id="recycle_glass" /> Glass</label>
+          </div>
+        </div>
+
+        <!-- Water Section -->
+        <div class="form-section">
+          <h3>🚿 Water Usage</h3>
+          <label>Water (liters/month):</label>
+          <input type="number" id="water_liters" step="0.01" />
+        </div>
+      </div>
+
+      <button type="submit">🌍 Calculate Carbon Footprint</button>
     </form>
-
-    <div id="result" class="result" style="display: none"></div>
 
     <script src="script.js"></script>
   </body>

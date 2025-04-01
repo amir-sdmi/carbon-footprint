@@ -1,35 +1,20 @@
-from flask import Flask, request, jsonify
+from flask import Flask, send_from_directory
 from flask_cors import CORS
+import os
 
-app = Flask(__name__)
-CORS(app)  # Allow frontend requests from browser
+def create_app():
+    app = Flask(__name__)
+    CORS(app)
 
-# Emission factors
-CO2_ELECTRICITY = 0.418
-CO2_CAR = 0.332
-@app.route('/')
-def home():
-    return 'Carbon Footprint API is running! please open index.html file '
+    from routes.calculate import calculate_bp
+    app.register_blueprint(calculate_bp)
 
-@app.route('/api/calculate', methods=['POST'])
-def calculate():
-    try:
-        data = request.get_json()
-        electricity_kwh = float(data.get('electricity', 0))
-        car_km = float(data.get('car_km', 0))
+    @app.route('/reports/<filename>')
+    def download_report(filename):
+        return send_from_directory("reports", filename)
 
-        co2_electricity = electricity_kwh * CO2_ELECTRICITY
-        co2_car = car_km * CO2_CAR
-        total_co2 = co2_electricity + co2_car
+    return app
 
-        return jsonify({
-            "co2_electricity": round(co2_electricity, 2),
-            "co2_car": round(co2_car, 2),
-            "total_co2": round(total_co2, 2)
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400
-
-if __name__ == '__main__':
+if __name__ == "__main__":
+    app = create_app()
     app.run(debug=True)
