@@ -51,7 +51,6 @@ Now open `index.html` in your browser:
 
 - **Windows**: `start index.html`
 - **macOS**: `open index.html`
-- **Linux**: `xdg-open index.html`
 
 You can also just double-click the file to open it.
 
