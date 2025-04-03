@@ -4,21 +4,6 @@ This project is developed as part of the **M602 Computer Programming** course at
 
 ---
 
-## 📁 Project Structure
-
-```
-carbon-footprint/
-├── backend/          # Python Flask backend server
-│   ├── app.py        # Main Flask app
-│   ├── data/         # Stores report data in JSON format
-│   ├── reports/      # Folder where generated PDF reports are saved
-│   └── requirements.txt
-├── frontend/         # Frontend with HTML, CSS, and JavaScript
-│   └── index.html    # Main UI
-└── README.md         # You're here!
-```
-
----
 
 ## ✨ Getting Started
 
