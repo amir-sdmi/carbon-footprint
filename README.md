@@ -11,7 +11,7 @@ Hey there! This is a simple tool built for the **M602 Computer Programming** cou
 First, grab the code from GitHub:
 
 ```bash
-git clone https://github.com/your-username/carbon-footprint.git
+git clone https://github.com/amir-sdmi/carbon-footprint.git
 cd carbon-footprint
 ```
 
