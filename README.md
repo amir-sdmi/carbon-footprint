@@ -1,13 +1,14 @@
 # 🌍 Carbon Footprint Calculator
 
-This project is developed as part of the **M602 Computer Programming** course at Gisma University. It is a web-based application that allows users to input activity data (fuel, travel, electricity usage, etc.) and calculates the resulting carbon emissions. The tool also generates visual summaries and downloadable PDF reports.
+Hey there! This is a simple tool built for the **M602 Computer Programming** course at Gisma University. It helps users calculate their carbon footprint based on things like fuel use, travel, and electricity. You can also see charts and download PDF reports.
 
 ---
 
-
 ## ✨ Getting Started
 
-### 1. Clone the Repository
+### 1. Clone the Project
+
+First, grab the code from GitHub:
 
 ```bash
 git clone https://github.com/your-username/carbon-footprint.git
@@ -16,75 +17,76 @@ cd carbon-footprint
 
 ---
 
-### 2. Backend Setup (Python + Flask)
+### 2. Run the Backend (Python + Flask)
+
+Now let's get the backend running:
 
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
+source venv/bin/activate        # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
 ```
 
-The Flask backend will start running at:
+Your Flask server will start at:
 
 ```
 http://127.0.0.1:5000
 ```
 
-Keep it running while using the frontend.
+Keep this running in the background.
 
 ---
 
-### 3. Frontend Setup
+### 3. Open the Frontend
 
-In a **new terminal window**:
+In another terminal (or just open a new window):
 
 ```bash
 cd frontend
 ```
 
-Now open the app:
+Now open `index.html` in your browser:
 
 - **Windows**: `start index.html`
 - **macOS**: `open index.html`
 - **Linux**: `xdg-open index.html`
 
-Or simply double-click `index.html` in your file explorer.
+You can also just double-click the file to open it.
 
-That's it! 🎉 Enjoy using the Carbon Footprint Calculator.
-
----
-
-## 📊 Features
-
-- Easy-to-use web interface
-- Input for travel, fuel, and electricity usage
-- Emission calculations using official EPA factors
-- PDF report generation
-- Visual charts and summaries
-- Offline-ready frontend (no build tools required)
+That's it! 🎉 You should now see the app in your browser.
 
 ---
 
-## 📘 Reference
+## 📊 What This App Can Do
 
-Emission factors and methodology are inspired by:
-- Brightly Software: [How to calculate your carbon footprint](https://www.brightlysoftware.com/blog/calculate-carbon-footprint)
-- U.S. EPA: Greenhouse Gas Emission Factors Hub (April 2022)
-
----
-
-## 📅 Course Info
-
-- **Module**: M602 Computer Programming
-- **University**: Gisma University of Applied Sciences
-- **Assessment**: Final Individual Project
-- **Deadline**: April 3, 2025
+- Simple and clean web interface
+- Input travel, fuel, and energy data
+- Calculates emissions using EPA data
+- Lets you save PDF reports
+- Shows pie charts and trends
+- Works offline (no install needed!)
 
 ---
 
-## 📊 License
+## 📘 Where We Got Our Data
 
-This project is licensed under the **MIT License**. You are free to use and modify it with proper attribution.
+This project was inspired by:
+- [Brightly Software blog](https://www.brightlysoftware.com/blog/calculate-carbon-footprint)
+- EPA's Greenhouse Gas Emission Factors Hub (2022)
 
+---
+
+## 📅 Course Details
+
+- **Course**: M602 Computer Programming
+- **University**: Gisma University
+- **Project Type**: Individual Final Project
+- **Due Date**: April 3, 2025
+
+---
+
+## 💼 License
+
+This is an open project under the **MIT License** — feel free to use it, improve it, and make it your own (just give credit!).
