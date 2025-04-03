@@ -1,9 +1,9 @@
 FACTORS = {
-    "electricity": 0.418,            # kg CO2 per kWh
-    "natural_gas": 0.05444,          # kg CO2 per cubic foot
-    "heating_oil": 10.21,            # kg CO2 per gallon
+    "electricity": 0.418,            
+    "natural_gas": 0.05444,         
+    "heating_oil": 10.21,            
 
-    "gasoline": 0.332,               # kg CO2 per km
+    "gasoline": 0.332,               
     "diesel": 0.38,
     "electric_car": 0.1,
 

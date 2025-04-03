@@ -5,7 +5,9 @@ from reportlab.pdfgen import canvas
 import os
 import uuid
 
+# Main function to calculate emissions based on user input
 def calculate_emissions(data):
+    # Extract and convert user input
     electricity = float(data.get("electricity", 0))
     natural_gas = float(data.get("natural_gas", 0))
     heating_oil = float(data.get("heating_oil", 0))
@@ -20,8 +22,7 @@ def calculate_emissions(data):
     recycle_paper = data.get("recycle_paper", False)
     recycle_glass = data.get("recycle_glass", False)
     water_liters = float(data.get("water_liters", 0))
-
-    # Emissions
+    # Calculate emissions for each category
     co2_electricity = electricity * FACTORS["electricity"]
     co2_natural_gas = natural_gas * FACTORS["natural_gas"]
     co2_heating_oil = heating_oil * FACTORS["heating_oil"]
@@ -33,7 +34,7 @@ def calculate_emissions(data):
     )
     co2_waste = waste_kg * FACTORS["waste"]
     co2_water = water_liters * FACTORS["water"]
-
+    # Calculate emission savings from recycling
     co2_recycling_saved = 0
     if recycle_plastic:
         co2_recycling_saved += FACTORS["recycling_saving"]["plastic"]
@@ -41,14 +42,13 @@ def calculate_emissions(data):
         co2_recycling_saved += FACTORS["recycling_saving"]["paper"]
     if recycle_glass:
         co2_recycling_saved += FACTORS["recycling_saving"]["glass"]
-
+    # Final total CO₂e value
     total_co2e = (
         co2_electricity + co2_natural_gas + co2_heating_oil +
         co2_car + co2_flights + co2_waste + co2_water -
         co2_recycling_saved
     )
-
-    # Ordered report
+    # Prepare result data
     result = {
         "co2_electricity": round(co2_electricity, 2),
         "co2_natural_gas": round(co2_natural_gas, 2),
@@ -60,8 +60,7 @@ def calculate_emissions(data):
         "co2_recycling_saved": round(co2_recycling_saved, 2),
         "total_co2e": round(total_co2e, 2)
     }
-
-    # Add chart data
+    # Add chart data for frontend use
     result["chart_data"] = {
         "pie": {
             "Electricity": co2_electricity,
@@ -78,11 +77,12 @@ def calculate_emissions(data):
             "average_total": get_summary()["averages"].get("total_co2e", 0)
         }
     }
-
+    # Generate PDF report and save result
     result["pdf_filename"] = generate_pdf(result)
     save_report(result)
     return result
 
+# Generate a PDF report based on emission results
 def generate_pdf(report_data):
     os.makedirs("reports", exist_ok=True)
     filename = f"report_{uuid.uuid4().hex[:8]}.pdf"
@@ -96,14 +96,13 @@ def generate_pdf(report_data):
     styles = getSampleStyleSheet()
     elements = []
 
-    # Title
+    # Report title
     elements.append(Paragraph("Carbon Footprint Report", styles["Title"]))
     elements.append(Spacer(1, 12))
 
-    # Your Monthly Footprint
+    # User's personal emissions
     elements.append(Paragraph("👤 Your Monthly Footprint", styles["Heading2"]))
     user_table = [["Category", "Emissions (kg CO2)"]]
-
     for key in EMISSION_CATEGORIES:
         label = key.replace("co2_", "").replace("_", " ").title()
         value = report_data.get(key, 0)
@@ -121,11 +120,13 @@ def generate_pdf(report_data):
     elements.append(user_table_style)
     elements.append(Spacer(1, 20))
 
-    # Summary Trends
+    # Summary of average emissions
     summary = get_summary()
-    elements.append(Paragraph(f"📈 Summary Trends Across {summary['total_clients']} Client{'s' if summary['total_clients'] != 1 else ''}", styles["Heading2"]))
+    elements.append(Paragraph(
+        f"📈 Summary Trends Across {summary['total_clients']} Client{'s' if summary['total_clients'] != 1 else ''}",
+        styles["Heading2"]
+    ))
     summary_table = [["Category", "Average (kg CO2e)"]]
-
     for key in EMISSION_CATEGORIES:
         label = key.replace("co2_", "").replace("_", " ").title()
         avg_value = summary["averages"].get(key, 0)
@@ -142,6 +143,6 @@ def generate_pdf(report_data):
     ]))
     elements.append(summary_table_style)
 
-    # Build PDF
+    # Save the PDF
     doc.build(elements)
     return filename

@@ -1,86 +1,114 @@
 [
   {
-    "co2_electricity": 209.0,
-    "co2_natural_gas": 0.0,
-    "co2_heating_oil": 2042.0,
-    "co2_car": 132.8,
-    "co2_flights": 4090,
-    "co2_waste": 114.0,
-    "co2_water": 0.12,
-    "co2_recycling_saved": 0,
-    "total_co2e": 6587.92,
+    "co2_electricity": 125.4,
+    "co2_natural_gas": 2.72,
+    "co2_heating_oil": 0.0,
+    "co2_car": 265.6,
+    "co2_flights": 470,
+    "co2_waste": 17.1,
+    "co2_water": 1.8,
+    "co2_recycling_saved": 3.0,
+    "total_co2e": 879.62,
     "chart_data": {
       "pie": {
-        "Electricity": 209.0,
-        "Natural Gas": 0.0,
-        "Heating Oil": 2042.0000000000002,
-        "Car": 132.8,
-        "Flights": 4090,
-        "Waste": 113.99999999999999,
-        "Water": 0.12,
-        "Recycling Savings": 0
+        "Electricity": 125.39999999999999,
+        "Natural Gas": 2.722,
+        "Heating Oil": 0.0,
+        "Car": 265.6,
+        "Flights": 470,
+        "Waste": 17.099999999999998,
+        "Water": 1.7999999999999998,
+        "Recycling Savings": -3.0
       },
       "trend": {
-        "user_total": 6587.92,
+        "user_total": 879.62,
         "average_total": 0
       }
     },
-    "pdf_filename": "report_31937ba6.pdf"
+    "pdf_filename": "report_093ef10d.pdf"
   },
   {
-    "co2_electricity": 21.74,
-    "co2_natural_gas": 0.11,
-    "co2_heating_oil": 51.05,
+    "co2_electricity": 62.7,
+    "co2_natural_gas": 1.09,
+    "co2_heating_oil": 0.0,
     "co2_car": 0.0,
-    "co2_flights": 770,
-    "co2_waste": 0.0,
-    "co2_water": 0.0,
-    "co2_recycling_saved": 0,
-    "total_co2e": 842.89,
+    "co2_flights": 0,
+    "co2_waste": 8.55,
+    "co2_water": 1.2,
+    "co2_recycling_saved": 3.0,
+    "total_co2e": 70.54,
     "chart_data": {
       "pie": {
-        "Electricity": 21.736,
-        "Natural Gas": 0.10888,
-        "Heating Oil": 51.050000000000004,
+        "Electricity": 62.699999999999996,
+        "Natural Gas": 1.0888,
+        "Heating Oil": 0.0,
         "Car": 0.0,
-        "Flights": 770,
-        "Waste": 0.0,
-        "Water": 0.0,
-        "Recycling Savings": 0
+        "Flights": 0,
+        "Waste": 8.549999999999999,
+        "Water": 1.2,
+        "Recycling Savings": -3.0
       },
       "trend": {
-        "user_total": 842.89,
-        "average_total": 6587.92
+        "user_total": 70.54,
+        "average_total": 879.62
       }
     },
-    "pdf_filename": "report_fc5046e5.pdf"
+    "pdf_filename": "report_901a9c80.pdf"
   },
   {
-    "co2_electricity": 209.0,
-    "co2_natural_gas": 0.0,
-    "co2_heating_oil": 1123.1,
-    "co2_car": 33.2,
-    "co2_flights": 1210,
-    "co2_waste": 0.0,
-    "co2_water": 0.0,
-    "co2_recycling_saved": 0,
-    "total_co2e": 2575.3,
+    "co2_electricity": 250.8,
+    "co2_natural_gas": 6.53,
+    "co2_heating_oil": 0.0,
+    "co2_car": 398.4,
+    "co2_flights": 1010,
+    "co2_waste": 28.5,
+    "co2_water": 2.7,
+    "co2_recycling_saved": 2.5,
+    "total_co2e": 1694.43,
     "chart_data": {
       "pie": {
-        "Electricity": 209.0,
-        "Natural Gas": 0.0,
-        "Heating Oil": 1123.1000000000001,
-        "Car": 33.2,
-        "Flights": 1210,
-        "Waste": 0.0,
-        "Water": 0.0,
-        "Recycling Savings": 0
+        "Electricity": 250.79999999999998,
+        "Natural Gas": 6.5328,
+        "Heating Oil": 0.0,
+        "Car": 398.40000000000003,
+        "Flights": 1010,
+        "Waste": 28.499999999999996,
+        "Water": 2.6999999999999997,
+        "Recycling Savings": -2.5
       },
       "trend": {
-        "user_total": 2575.3,
-        "average_total": 3715.41
+        "user_total": 1694.43,
+        "average_total": 475.08
       }
     },
-    "pdf_filename": "report_3a016032.pdf"
+    "pdf_filename": "report_a8ec6415.pdf"
+  },
+  {
+    "co2_electricity": 104.5,
+    "co2_natural_gas": 1.63,
+    "co2_heating_oil": 0.0,
+    "co2_car": 190.0,
+    "co2_flights": 1990,
+    "co2_waste": 14.25,
+    "co2_water": 1.5,
+    "co2_recycling_saved": 2.5,
+    "total_co2e": 2299.38,
+    "chart_data": {
+      "pie": {
+        "Electricity": 104.5,
+        "Natural Gas": 1.6332,
+        "Heating Oil": 0.0,
+        "Car": 190.0,
+        "Flights": 1990,
+        "Waste": 14.249999999999998,
+        "Water": 1.4999999999999998,
+        "Recycling Savings": -2.5
+      },
+      "trend": {
+        "user_total": 2299.38,
+        "average_total": 881.53
+      }
+    },
+    "pdf_filename": "report_7c1a1e77.pdf"
   }
 ]

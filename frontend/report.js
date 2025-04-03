@@ -1,3 +1,4 @@
+// Keys used for emissions categories
 const EMISSION_KEYS = [
   "co2_electricity",
   "co2_natural_gas",
@@ -10,6 +11,7 @@ const EMISSION_KEYS = [
   "total_co2e",
 ];
 
+// When page loads, get stored result and display it
 window.onload = () => {
   const result = JSON.parse(localStorage.getItem("carbonResult"));
   if (!result) {
@@ -18,11 +20,13 @@ window.onload = () => {
     return;
   }
 
-  // Render User Table
+  // Create table rows from result data
   const resRows = EMISSION_KEYS.map((key) => {
     const label = key.replace(/_/g, " ").replace("co2 ", "").toUpperCase();
     return `<tr><td>${label}</td><td>${result[key]} kg</td></tr>`;
   }).join("");
+
+  // Render user result table
   document.getElementById("resultTable").innerHTML = `
       <thead><tr><th>Category</th><th>Emissions</th></tr></thead>
       <tbody>${resRows}</tbody>
@@ -31,14 +35,15 @@ window.onload = () => {
   // Set PDF download link
   document.getElementById(
     "downloadLink"
-  ).href = `http://127.0.0.1:5000/reports/${result.pdf_filename}`;
+  ).href = `http://127.0.0.1:5000/api/reports/${result.pdf_filename}`;
 
-  // Render Charts
+  // Show charts and summary
   renderPieChart(result.chart_data.pie);
   renderTrendChart(result.chart_data.trend);
   loadSummary();
 };
 
+// Render pie chart of emission breakdown
 function renderPieChart(pieData) {
   new Chart(document.getElementById("pieChart"), {
     type: "pie",
@@ -84,6 +89,7 @@ function renderPieChart(pieData) {
   });
 }
 
+// Render bar chart comparing user vs average
 function renderTrendChart(trendData) {
   new Chart(document.getElementById("trendChart"), {
     type: "bar",
@@ -133,6 +139,7 @@ function renderTrendChart(trendData) {
   });
 }
 
+// Load average summary data from backend
 function loadSummary() {
   fetch("http://127.0.0.1:5000/api/summary")
     .then((res) => res.json())
@@ -149,19 +156,21 @@ function loadSummary() {
         return `<tr><td>${label}</td><td>${value} kg</td></tr>`;
       }).join("");
 
-      // Update heading dynamically
+      // Update heading with total clients
       const header = document.querySelector(".summary-section h4");
       header.textContent = `📈 Summary Trends (Across ${
         summary.total_clients
       } Client${summary.total_clients !== 1 ? "s" : ""})`;
 
+      // Render summary table
       document.getElementById("summaryTable").innerHTML = `
-  <thead><tr><th>Category</th><th>Average</th></tr></thead>
-  <tbody>${summaryRows}</tbody>
-`;
+        <thead><tr><th>Category</th><th>Average</th></tr></thead>
+        <tbody>${summaryRows}</tbody>
+      `;
     });
 }
 
+// Reset all stored data
 function resetAll() {
   fetch("http://127.0.0.1:5000/api/reset", { method: "POST" })
     .then((res) => res.json())
@@ -173,6 +182,7 @@ function resetAll() {
     .catch((err) => alert("Reset failed: " + err.message));
 }
 
+// Start a new calculation
 function startNew() {
   localStorage.removeItem("carbonResult");
   window.location.href = "index.html";
